@@ -1,22 +1,20 @@
-import React, { useEffect, Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { handleInitialData } from "../actions/shared";
+import Login from "./Login";
+import Dashboard from "./Dashboard";
 
 class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(handleInitialData());
-  }
   render() {
-    return <div>Redux</div>;
+    return (
+      <div>{this.props.authedUser === null ? <Login /> : <Dashboard />}</div>
+    );
   }
 }
 
-// function App() {
-//   useEffect(() => {
-//     props.dispatch(handleInitialData());
-//   });
+function mapStateToProps({ authedUser }) {
+  return {
+    authedUser,
+  };
+}
 
-//   return <div>Redux</div>;
-// }
-
-export default connect()(App);
+export default connect(mapStateToProps)(App);

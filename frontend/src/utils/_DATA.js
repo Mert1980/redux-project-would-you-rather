@@ -1,7 +1,7 @@
 let users = {
   ilhan: {
     id: "ilhan",
-    name: "Ilhan",
+    name: "Ilhan Koral",
     avatarURL: "https://ca.slack-edge.com/T91PPTG9H-UNJB00M9T-0134bbcb5a0b-512",
     answers: {
       "8xf0y6ziyjabvozdd253nd": "optionOne",
