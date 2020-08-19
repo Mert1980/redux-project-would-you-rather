@@ -6,7 +6,15 @@ import Dashboard from "./Dashboard";
 class App extends Component {
   render() {
     return (
-      <div>{this.props.authedUser === null ? <Login /> : <Dashboard />}</div>
+      <div>
+        {this.props.authedUser === null ? (
+          <Login />
+        ) : (
+          <>
+            <Dashboard />
+          </>
+        )}
+      </div>
     );
   }
 }

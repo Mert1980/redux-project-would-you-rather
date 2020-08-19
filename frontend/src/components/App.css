@@ -1,9 +1,14 @@
-.container {
-  width: 500px;
-  height: 400px;
+.container-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-left: 35%;
+  width: 30%;
+  height: 50%;
   border-radius: 10%;
   margin-top: 50px;
-  padding-top: 20px;
+  padding: 20px;
   background-color: lightgray;
 }
 
@@ -15,4 +20,8 @@
   text-align: center;
 
   background-color: rgb(228, 154, 111);
+}
+
+.navbar {
+  width: auto;
 }

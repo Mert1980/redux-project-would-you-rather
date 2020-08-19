@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import NavBar from "./NavBar";
 
 class Dashboard extends Component {
   state = {};
   render() {
-    return <div>Dashboard</div>;
+    return (
+      <div>
+        <NavBar />
+      </div>
+    );
   }
 }
 
