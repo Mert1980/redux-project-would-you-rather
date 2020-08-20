@@ -29,3 +29,10 @@
 .questions {
   margin-top: 10%;
 }
+
+.question-card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

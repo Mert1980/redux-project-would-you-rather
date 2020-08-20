@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import "../components/App.css";
 
 const useStyles = makeStyles({
   root: {
@@ -18,11 +19,14 @@ const useStyles = makeStyles({
 function QuestionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  console.log("value :", value);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const isAnswered = (userID) => userID === props.authedUser;
+  const isUnanswered = (userID) => userID !== props.authedUser;
   return (
     <div className="questions">
       <Paper className={classes.root}>
@@ -37,31 +41,54 @@ function QuestionTabs(props) {
           <Tab label="Answered" />
         </Tabs>
       </Paper>
+      <div className="question-card">
+        {Object.values(props.questions).map((question) => {
+          // if (question.optionOne.every(isAnswered) || question.optionOne.every(isAnswered){
 
-      {Object.values(props.questions).map((question) => {
-        return (
-          <Card key={question.id} style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src={props.users[question.author].avatarURL}
-            />
-            <Card.Body>
-              <Card.Title>Would You Rather</Card.Title>
-              <Card.Text>{question.optionOne.text}</Card.Text>
-              <Card.Text>or…</Card.Text>
-              <Button variant="primary">Answer Question</Button>
-            </Card.Body>
-          </Card>
-        );
-      })}
+          // }
+          return value === 1
+            ? question.optionOne.votes.every(isAnswered) ||
+                (question.optionTwo.votes.every(isAnswered) && (
+                  <Card key={question.id} style={{ width: "18rem" }}>
+                    <Card.Img
+                      variant="top"
+                      src={props.users[question.author].avatarURL}
+                    />
+                    <Card.Body>
+                      <Card.Title>Would You Rather</Card.Title>
+                      <Card.Text>{question.optionOne.text}</Card.Text>
+                      <Card.Text>or…</Card.Text>
+                      <Button variant="primary">Answer Question</Button>
+                    </Card.Body>
+                  </Card>
+                ))
+            : value === 0 &&
+                (question.optionOne.votes.every(isUnanswered) ||
+                  question.optionOne.votes.every(isUnanswered)) && (
+                  <Card key={question.id} style={{ width: "18rem" }}>
+                    <Card.Img
+                      variant="top"
+                      src={props.users[question.author].avatarURL}
+                    />
+                    <Card.Body>
+                      <Card.Title>Would You Rather</Card.Title>
+                      <Card.Text>{question.optionOne.text}</Card.Text>
+                      <Card.Text>or…</Card.Text>
+                      <Button variant="primary">Answer Question</Button>
+                    </Card.Body>
+                  </Card>
+                );
+        })}
+      </div>
     </div>
   );
 }
 
-function mapStateToProps({ users, questions }) {
+function mapStateToProps({ users, questions, authedUser }) {
   return {
     users,
     questions,
+    authedUser,
   };
 }
 
