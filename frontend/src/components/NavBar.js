@@ -5,12 +5,16 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { setAuthedUser } from "../actions/authedUser";
 
 class NavBar extends Component {
   upperCase = (userName) => {
     return userName.charAt(0).toUpperCase() + userName.slice(1);
   };
-  state = {};
+
+  handleLogout = (e) => {
+    this.props.dispatch(setAuthedUser(null));
+  };
   render() {
     return (
       <div>
@@ -27,7 +31,9 @@ class NavBar extends Component {
               <Navbar.Text className="mr-sm-2">
                 Signed in as: {this.upperCase(this.props.authedUser)}
               </Navbar.Text>
-              <Button variant="outline-primary">Logout</Button>
+              <Button onClick={this.handleLogout} variant="outline-primary">
+                Logout
+              </Button>
             </Form>
           </Navbar>
         </Container>
