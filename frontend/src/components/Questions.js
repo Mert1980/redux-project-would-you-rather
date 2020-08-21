@@ -20,13 +20,14 @@ function QuestionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
   console.log("value :", value);
+  console.log("authedUser :", props.authedUser);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  const isAnswered = (userID) => userID === props.authedUser;
-  const isUnanswered = (userID) => userID !== props.authedUser;
+  // const isAnswered = (userID) => userID === props.authedUser;
+  // const isUnanswered = (userID) => userID === props.authedUser;
   return (
     <div className="questions">
       <Paper className={classes.root}>
@@ -47,8 +48,8 @@ function QuestionTabs(props) {
 
           // }
           return value === 1
-            ? question.optionOne.votes.every(isAnswered) ||
-                (question.optionTwo.votes.every(isAnswered) && (
+            ? question.optionOne.votes.includes(props.authedUser) ||
+                (question.optionTwo.votes.includes(props.authedUser) && (
                   <Card key={question.id} style={{ width: "18rem" }}>
                     <Card.Img
                       variant="top"
@@ -63,8 +64,8 @@ function QuestionTabs(props) {
                   </Card>
                 ))
             : value === 0 &&
-                (question.optionOne.votes.every(isUnanswered) ||
-                  question.optionOne.votes.every(isUnanswered)) && (
+                !question.optionOne.votes.includes(props.authedUser) &&
+                !question.optionTwo.votes.includes(props.authedUser) && (
                   <Card key={question.id} style={{ width: "18rem" }}>
                     <Card.Img
                       variant="top"
