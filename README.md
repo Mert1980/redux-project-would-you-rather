@@ -4,9 +4,11 @@ The `_DATA.js` file represents a fake database and methods that let you access t
 
 ## Running the App
 
-`git clone https://github.com/Mert1980/redux-project-would-you-rather.git`
-`cd frontend`
-`npm start`
+```
+git clone https://github.com/Mert1980/redux-project-would-you-rather.git
+cd frontend
+npm start
+```
 
 ## Data
 
