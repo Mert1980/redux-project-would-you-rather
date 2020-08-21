@@ -48,8 +48,8 @@ function QuestionTabs(props) {
 
           // }
           return value === 1
-            ? question.optionOne.votes.includes(props.authedUser) ||
-                (question.optionTwo.votes.includes(props.authedUser) && (
+            ? (question.optionOne.votes.includes(props.authedUser) ||
+                question.optionTwo.votes.includes(props.authedUser)) && (
                   <Card key={question.id} style={{ width: "18rem" }}>
                     <Card.Img
                       variant="top"
@@ -62,10 +62,10 @@ function QuestionTabs(props) {
                       <Button variant="primary">Answer Question</Button>
                     </Card.Body>
                   </Card>
-                ))
+                )
             : value === 0 &&
-                !question.optionOne.votes.includes(props.authedUser) &&
-                !question.optionTwo.votes.includes(props.authedUser) && (
+                (!question.optionOne.votes.includes(props.authedUser) &&
+                !question.optionTwo.votes.includes(props.authedUser)) && (
                   <Card key={question.id} style={{ width: "18rem" }}>
                     <Card.Img
                       variant="top"
