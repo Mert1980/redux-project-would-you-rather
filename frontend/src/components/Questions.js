@@ -26,8 +26,6 @@ function QuestionTabs(props) {
     setValue(newValue);
   };
 
-  // const isAnswered = (userID) => userID === props.authedUser;
-  // const isUnanswered = (userID) => userID === props.authedUser;
   return (
     <div className="questions">
       <Paper className={classes.root}>
@@ -44,28 +42,25 @@ function QuestionTabs(props) {
       </Paper>
       <div className="question-card">
         {Object.values(props.questions).map((question) => {
-          // if (question.optionOne.every(isAnswered) || question.optionOne.every(isAnswered){
-
-          // }
           return value === 1
             ? (question.optionOne.votes.includes(props.authedUser) ||
                 question.optionTwo.votes.includes(props.authedUser)) && (
-                  <Card key={question.id} style={{ width: "18rem" }}>
-                    <Card.Img
-                      variant="top"
-                      src={props.users[question.author].avatarURL}
-                    />
-                    <Card.Body>
-                      <Card.Title>Would You Rather</Card.Title>
-                      <Card.Text>{question.optionOne.text}</Card.Text>
-                      <Card.Text>or…</Card.Text>
-                      <Button variant="primary">Answer Question</Button>
-                    </Card.Body>
-                  </Card>
-                )
+                <Card key={question.id} style={{ width: "18rem" }}>
+                  <Card.Img
+                    variant="top"
+                    src={props.users[question.author].avatarURL}
+                  />
+                  <Card.Body>
+                    <Card.Title>Would You Rather</Card.Title>
+                    <Card.Text>{question.optionOne.text}</Card.Text>
+                    <Card.Text>or…</Card.Text>
+                    <Button variant="primary">Answer Question</Button>
+                  </Card.Body>
+                </Card>
+              )
             : value === 0 &&
-                (!question.optionOne.votes.includes(props.authedUser) &&
-                !question.optionTwo.votes.includes(props.authedUser)) && (
+                !question.optionOne.votes.includes(props.authedUser) &&
+                !question.optionTwo.votes.includes(props.authedUser) && (
                   <Card key={question.id} style={{ width: "18rem" }}>
                     <Card.Img
                       variant="top"
