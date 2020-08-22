@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+// import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
@@ -25,7 +27,10 @@ function QuestionTabs(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  // let history = useHistory();
+  // const handleQuestionBtn = (id) => {
+  //   history.push(`/questions/${id}`);
+  // };
   return (
     <div className="questions">
       <Paper className={classes.root}>
@@ -54,7 +59,14 @@ function QuestionTabs(props) {
                     <Card.Title>Would You Rather</Card.Title>
                     <Card.Text>{question.optionOne.text}</Card.Text>
                     <Card.Text>or…</Card.Text>
-                    <Button variant="primary">Answer Question</Button>
+                    <Button
+                      onClick={() => (
+                        <Redirect push to={`/questions/${question.id}`} />
+                      )}
+                      variant="primary"
+                    >
+                      Answer Question
+                    </Button>
                   </Card.Body>
                 </Card>
               )
@@ -70,7 +82,14 @@ function QuestionTabs(props) {
                       <Card.Title>Would You Rather</Card.Title>
                       <Card.Text>{question.optionOne.text}</Card.Text>
                       <Card.Text>or…</Card.Text>
-                      <Button variant="primary">Answer Question</Button>
+                      <Button
+                        onClick={() => (
+                          <Redirect push to={`/questions/${question.id}`} />
+                        )}
+                        variant="primary"
+                      >
+                        Answer Question
+                      </Button>
                     </Card.Body>
                   </Card>
                 );

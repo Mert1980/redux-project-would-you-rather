@@ -28,11 +28,17 @@
 
 .questions {
   margin-top: 10%;
+  margin-left: 15%;
+  width: 70%;
 }
 
 .question-card {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.poll-container {
+  margin-top: 10%;
 }

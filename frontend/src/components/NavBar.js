@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { setAuthedUser } from "../actions/authedUser";
+import { Link } from "react-router-dom";
 
 class NavBar extends Component {
   upperCase = (userName) => {
@@ -20,11 +21,17 @@ class NavBar extends Component {
       <div>
         <Container>
           <Navbar fixed="top" expand="lg" variant="light" bg="light">
-            <Navbar.Brand href="#home">Would you rather?</Navbar.Brand>
+            <Navbar.Brand>Would you rather?</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#features">New Poll</Nav.Link>
-              <Nav.Link href="#pricing">Leader Board</Nav.Link>
+              <Nav.Link>
+                <Link to="/">Home</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/add">New Poll</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/leaderboard">Leader Board</Link>
+              </Nav.Link>
             </Nav>
 
             <Form inline>
