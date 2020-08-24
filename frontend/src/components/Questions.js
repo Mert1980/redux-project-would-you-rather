@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-// import { useHistory } from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import "../components/App.css";
 
 const useStyles = makeStyles({
@@ -21,16 +19,11 @@ const useStyles = makeStyles({
 function QuestionTabs(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  console.log("value :", value);
-  console.log("authedUser :", props.authedUser);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  // let history = useHistory();
-  // const handleQuestionBtn = (id) => {
-  //   history.push(`/questions/${id}`);
-  // };
+
   return (
     <div className="questions">
       <Paper className={classes.root}>
@@ -59,14 +52,9 @@ function QuestionTabs(props) {
                     <Card.Title>Would You Rather</Card.Title>
                     <Card.Text>{question.optionOne.text}</Card.Text>
                     <Card.Text>or…</Card.Text>
-                    <Button
-                      onClick={() => (
-                        <Redirect push to={`/questions/${question.id}`} />
-                      )}
-                      variant="primary"
-                    >
+                    <NavLink to={`/questions/${question.id}`}>
                       Answer Question
-                    </Button>
+                    </NavLink>
                   </Card.Body>
                 </Card>
               )
@@ -82,14 +70,9 @@ function QuestionTabs(props) {
                       <Card.Title>Would You Rather</Card.Title>
                       <Card.Text>{question.optionOne.text}</Card.Text>
                       <Card.Text>or…</Card.Text>
-                      <Button
-                        onClick={() => (
-                          <Redirect push to={`/questions/${question.id}`} />
-                        )}
-                        variant="primary"
-                      >
+                      <NavLink to={`/questions/${question.id}`}>
                         Answer Question
-                      </Button>
+                      </NavLink>
                     </Card.Body>
                   </Card>
                 );
