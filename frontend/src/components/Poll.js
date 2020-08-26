@@ -1,12 +1,31 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { handleSaveAnswer } from "../actions/saveAnswer";
+
 import "../components/App.css";
 
 class Poll extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
+    this.state = {
+      checkedAnswer: "",
+    };
+  }
+
+  onAnswerChanged(event) {
+    this.setState({
+      checkedAnswer: event.target.value,
+    });
+  }
+
+  handleSubmitAnswer(answer, qid) {
+    this.props.dispatch(handleSaveAnswer(answer, qid));
+  }
+
   render() {
     console.log(this.props);
     return (
@@ -22,18 +41,33 @@ class Poll extends Component {
               <Form.Check
                 type="radio"
                 label={this.props.question.optionOne.text}
+                checked={this.state.checkedAnswer === "optionOne"}
+                value="optionOne"
+                onChange={(event) => this.onAnswerChanged(event)}
                 name="option"
                 id="optionOne"
               />
               <Form.Check
                 type="radio"
                 label={this.props.question.optionTwo.text}
+                checked={this.state.checkedAnswer === "optionTwo"}
+                value="optionTwo"
+                onChange={(event) => this.onAnswerChanged(event)}
                 name="option"
                 id="optionTwo"
               />
             </Form>
 
-            <NavLink to="/">Submit Answer</NavLink>
+            <Button
+              onClick={() =>
+                this.handleSubmitAnswer(
+                  this.state.checkedAnswer,
+                  this.props.question.id
+                )
+              }
+            >
+              Submit Answer
+            </Button>
           </Card.Body>
         </Card>
       </div>
