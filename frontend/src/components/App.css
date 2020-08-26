@@ -6,20 +6,20 @@
   margin-left: 35%;
   width: 30%;
   height: 50%;
-  border-radius: 10%;
+
   margin-top: 50px;
   padding: 20px;
-  background-color: lightgray;
+  background-color: rgb(214, 219, 186);
 }
 
 .header {
   /* display: flex; */
   padding-top: 20px;
-  border-radius: 20%;
+
   align-content: center;
   text-align: center;
 
-  background-color: rgb(228, 154, 111);
+  background-color: rgb(198, 206, 157);
 }
 
 .navbar {
@@ -40,5 +40,9 @@
 }
 
 .poll-container {
+  margin-top: 10%;
+}
+
+.results-container {
   margin-top: 10%;
 }
