@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Grid, Image, Label, Segment } from "semantic-ui-react";
+import { Label } from "semantic-ui-react";
 
 import "../components/App.css";
 
