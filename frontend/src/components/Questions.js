@@ -57,9 +57,7 @@ function QuestionTabs(props) {
                     <Card.Title>Would You Rather</Card.Title>
                     <Card.Text>{question.optionOne.text}</Card.Text>
                     <Card.Text>or…</Card.Text>
-                    <NavLink to={`/questions/${question.id}`}>
-                      Answer Question
-                    </NavLink>
+                    <NavLink to={`/questions/${question.id}`}>Results</NavLink>
                   </Card.Body>
                 </Card>
               )

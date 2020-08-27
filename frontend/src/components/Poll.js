@@ -14,6 +14,7 @@ class Poll extends Component {
     this.state = {
       checkedAnswer: "",
       isSubmitted: false,
+      isAnswered: false,
     };
   }
 
