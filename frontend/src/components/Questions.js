@@ -47,6 +47,11 @@ function QuestionTabs(props) {
                   <Card.Img
                     variant="top"
                     src={props.users[question.author].avatarURL}
+                    style={{
+                      width: "150px",
+                      borderRadius: "5em",
+                      marginLeft: "70px",
+                    }}
                   />
                   <Card.Body>
                     <Card.Title>Would You Rather</Card.Title>
@@ -65,6 +70,11 @@ function QuestionTabs(props) {
                     <Card.Img
                       variant="top"
                       src={props.users[question.author].avatarURL}
+                      style={{
+                        width: "150px",
+                        borderRadius: "5em",
+                        marginLeft: "70px",
+                      }}
                     />
                     <Card.Body>
                       <Card.Title>Would You Rather</Card.Title>

@@ -32,7 +32,12 @@ class Poll extends Component {
 
   render() {
     if (this.state.isSubmitted) {
-      return <Results />;
+      return (
+        <Results
+          question={this.props.question}
+          checkedAnswer={this.state.checkedAnswer}
+        />
+      );
     } else
       return (
         <div className="poll-container">
@@ -40,6 +45,11 @@ class Poll extends Component {
             <Card.Img
               variant="top"
               src={this.props.users[this.props.question.author].avatarURL}
+              style={{
+                width: "150px",
+                borderRadius: "5em",
+                marginLeft: "70px",
+              }}
             />
             <Card.Body>
               <Card.Title>Would You Rather</Card.Title>

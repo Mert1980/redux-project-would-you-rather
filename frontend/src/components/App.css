@@ -46,3 +46,56 @@
 .results-container {
   margin-top: 10%;
 }
+
+.progress-bar {
+  position: relative;
+  background: #dce2e1;
+  margin-top: 4%;
+  height: 25px;
+  width: 350px;
+  border-radius: 50px;
+  border: 1px solid #333;
+}
+
+.filler {
+  background: #1da598;
+  height: 100%;
+  border-radius: inherit;
+  transition: width 0.2s ease-in;
+}
+
+.results-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin-left: 30%;
+  width: 30%;
+  height: 50%;
+  border-radius: 1rem;
+  margin-top: 100px;
+  padding: 20px;
+  background-color: rgb(233, 235, 225);
+}
+
+.results-container-header {
+  padding-right: 25px;
+}
+
+.optionOne-container {
+  background-color: rgb(221, 235, 221);
+  border-radius: 1em;
+}
+
+.optionTwo-container {
+  background-color: rgb(183, 233, 169);
+  border-radius: 1em;
+}
+
+.option {
+  padding-top: 15px;
+}
+
+.percentage-info {
+  padding-left: 90px;
+}
