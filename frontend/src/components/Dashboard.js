@@ -5,6 +5,7 @@ import Questions from "./Questions";
 import Poll from "./Poll";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Results from "./Results";
+import NewPoll from "./NewPoll";
 
 class Dashboard extends Component {
   state = {};
@@ -16,6 +17,10 @@ class Dashboard extends Component {
             <Route exact path="/">
               <NavBar />
               <Questions />
+            </Route>
+            <Route path="/add">
+              <NavBar />
+              <NewPoll />
             </Route>
             <Route
               path="/questions/:id"

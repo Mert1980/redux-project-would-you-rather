@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { setAuthedUser } from "../actions/authedUser";
-import { Link, useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 function NavBar(props) {
   let history = useHistory();
@@ -26,9 +26,9 @@ function NavBar(props) {
         <Navbar fixed="top" expand="lg" variant="light" bg="light">
           <Navbar.Brand>Would you rather?</Navbar.Brand>
           <Nav className="mr-auto">
-            <Link to="/">Home</Link>
-            <Link to="/add">New Poll</Link>
-            <Link to="/leaderboard">Leader Board</Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/add">New Poll</NavLink>
+            <NavLink to="/leaderboard">Leader Board</NavLink>
           </Nav>
 
           <Form inline>

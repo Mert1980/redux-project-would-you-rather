@@ -99,3 +99,31 @@
 .percentage-info {
   padding-left: 90px;
 }
+
+/* New Poll Component */
+.ui.grid > .row {
+  /* padding-left: 15px; */
+  justify-content: center;
+}
+
+.ui.placeholder.segment {
+  padding: 0;
+  margin: 50px auto;
+  width: 800px;
+}
+
+.ui.grid {
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.header-poll {
+  background-color: khaki;
+}
+
+.ui.input {
+  width: 750px;
+}
