@@ -1,22 +1,22 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.authedUser === null ? (
+function App(props) {
+  return (
+    <div>
+      {props.authedUser === null ? (
+        <div>
           <Login />
-        ) : (
-          <>
-            <Dashboard />
-          </>
-        )}
-      </div>
-    );
-  }
+        </div>
+      ) : (
+        <>
+          <Dashboard />
+        </>
+      )}
+    </div>
+  );
 }
 
 function mapStateToProps({ authedUser }) {

@@ -15,14 +15,11 @@ function saveAnswer({ users, questions, authedUser, qid, answer }) {
 export function handleSaveAnswer(answer, qid) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
-    console.log("answer", answer);
     return saveQuestionAnswer({
       answer,
       qid,
       authedUser,
     }).then(({ users, questions }) => {
-      console.log("users ", users);
-      console.log("questions ", questions);
       dispatch(saveAnswer({ users, questions, authedUser, qid, answer }));
     });
   };

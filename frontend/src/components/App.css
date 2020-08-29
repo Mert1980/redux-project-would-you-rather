@@ -26,6 +26,10 @@
   width: auto;
 }
 
+.mr-auto.navbar-nav > a {
+  margin-right: 1vw;
+}
+
 .questions {
   margin-top: 10%;
   margin-left: 15%;
@@ -101,6 +105,7 @@
 }
 
 /* New Poll Component */
+
 .ui.grid > .row {
   /* padding-left: 15px; */
   justify-content: center;
@@ -108,7 +113,7 @@
 
 .ui.placeholder.segment {
   padding: 0;
-  margin: 50px auto;
+  margin: 10% auto;
   width: 800px;
 }
 
@@ -124,6 +129,15 @@
   background-color: khaki;
 }
 
-.ui.input {
+.ui.form .field .ui.input,
+.ui.form .fields .field .ui.input,
+.ui.form .wide.field .ui.input {
   width: 750px;
+}
+
+.ui.placeholder.segment .button,
+.ui.placeholder.segment .field,
+.ui.placeholder.segment textarea,
+.ui.placeholder.segment > .ui.input {
+  max-width: unset;
 }
