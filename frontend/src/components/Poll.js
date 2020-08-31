@@ -42,19 +42,25 @@ class Poll extends Component {
     } else
       return (
         <div className="poll-container">
-          <Card style={{ width: "18rem" }}>
+          <Card
+            style={{
+              width: "30rem",
+              backgroundColor: "floralWhite",
+            }}
+          >
             <Card.Img
               variant="top"
               src={this.props.users[this.props.question.author].avatarURL}
               style={{
                 width: "150px",
                 borderRadius: "5em",
-                marginLeft: "70px",
+                marginLeft: "140px",
+                marginTop: "10px",
               }}
             />
             <Card.Body>
               <Card.Title>Would You Rather</Card.Title>
-              <Form>
+              <Form style={{ margin: "20px" }}>
                 <Form.Check
                   type="radio"
                   label={this.props.question.optionOne.text}

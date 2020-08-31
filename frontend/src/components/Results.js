@@ -91,7 +91,7 @@ function Results(props) {
         <img
           src={`${props.users[props.authedUser].avatarURL}`}
           alt="user avatar"
-          style={{ width: "150px", borderRadius: "5em" }}
+          style={{ width: "150px", borderRadius: "5em", marginRight: "8px" }}
         />
       </div>
 

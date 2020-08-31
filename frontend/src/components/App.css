@@ -12,13 +12,10 @@
   background-color: rgb(214, 219, 186);
 }
 
-.header {
-  /* display: flex; */
+.header-login {
   padding-top: 20px;
-
   align-content: center;
   text-align: center;
-
   background-color: rgb(198, 206, 157);
 }
 
@@ -44,9 +41,13 @@
 }
 
 .poll-container {
-  margin-top: 10%;
+  margin-top: 5%;
+
+  display: flex;
+  justify-content: center;
 }
 
+/* Results Container */
 .results-container {
   margin-top: 10%;
 }
@@ -56,7 +57,7 @@
   background: #dce2e1;
   margin-top: 4%;
   height: 25px;
-  width: 350px;
+  width: 450px;
   border-radius: 50px;
   border: 1px solid #333;
 }
@@ -74,7 +75,7 @@
   justify-content: center;
   align-content: center;
   margin-left: 30%;
-  width: 40%;
+  width: 36%;
   height: 50%;
   border-radius: 1rem;
   margin-top: 100px;
@@ -107,7 +108,6 @@
 /* New Poll Component */
 
 .ui.grid > .row {
-  /* padding-left: 15px; */
   justify-content: center;
 }
 
@@ -140,4 +140,24 @@
 .ui.placeholder.segment textarea,
 .ui.placeholder.segment > .ui.input {
   max-width: unset;
+}
+
+/* Leaderboard component */
+
+.leaderboard-container-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+.leaderboard-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.leaderboard-container-card {
+  margin-right: 50px;
+}
+.header {
+  background-color: none;
 }

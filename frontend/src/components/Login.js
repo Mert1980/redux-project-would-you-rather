@@ -37,7 +37,7 @@ class Login extends Component {
   render() {
     return (
       <div className="container-login">
-        <div className="header">
+        <div className="header-login">
           <h4>Welcome to the Would You Rather App</h4>
           <p>Please sign in to continue</p>
         </div>

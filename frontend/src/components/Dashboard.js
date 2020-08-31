@@ -6,9 +6,9 @@ import Poll from "./Poll";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Results from "./Results";
 import NewPoll from "./NewPoll";
+import Leaderboard from "./Leaderboard";
 
 class Dashboard extends Component {
-  state = {};
   render() {
     return (
       <Router>
@@ -21,6 +21,10 @@ class Dashboard extends Component {
             <Route path="/add">
               <NavBar />
               <NewPoll />
+            </Route>
+            <Route path="/leaderboard">
+              <NavBar />
+              <Leaderboard />
             </Route>
             <Route
               path="/questions/:id"

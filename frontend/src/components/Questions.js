@@ -43,14 +43,23 @@ function QuestionTabs(props) {
           return value === 1
             ? (question.optionOne.votes.includes(props.authedUser) ||
                 question.optionTwo.votes.includes(props.authedUser)) && (
-                <Card key={question.id} style={{ width: "18rem" }}>
+                <Card
+                  key={question.id}
+                  style={{
+                    width: "18rem",
+                    marginTop: "10px",
+                    marginRight: "20px",
+                    backgroundColor: "floralWhite",
+                  }}
+                >
                   <Card.Img
                     variant="top"
                     src={props.users[question.author].avatarURL}
                     style={{
                       width: "150px",
                       borderRadius: "5em",
-                      marginLeft: "70px",
+                      marginTop: "10px",
+                      marginLeft: "50px",
                     }}
                   />
                   <Card.Body>
@@ -64,14 +73,23 @@ function QuestionTabs(props) {
             : value === 0 &&
                 !question.optionOne.votes.includes(props.authedUser) &&
                 !question.optionTwo.votes.includes(props.authedUser) && (
-                  <Card key={question.id} style={{ width: "18rem" }}>
+                  <Card
+                    key={question.id}
+                    style={{
+                      width: "18rem",
+                      marginTop: "10px",
+                      marginRight: "20px",
+                      backgroundColor: "floralWhite",
+                    }}
+                  >
                     <Card.Img
                       variant="top"
                       src={props.users[question.author].avatarURL}
                       style={{
                         width: "150px",
                         borderRadius: "5em",
-                        marginLeft: "70px",
+                        marginTop: "10px",
+                        marginLeft: "50px",
                       }}
                     />
                     <Card.Body>

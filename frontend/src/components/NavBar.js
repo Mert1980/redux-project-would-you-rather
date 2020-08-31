@@ -33,7 +33,10 @@ function NavBar(props) {
 
           <Form inline>
             <Navbar.Text className="mr-sm-2">
-              Signed in as: {upperCase(props.authedUser)}
+              Signed in as:{" "}
+              <span>
+                <strong>{upperCase(props.authedUser)}</strong>
+              </span>
             </Navbar.Text>
             <Button onClick={handleLogout} variant="outline-primary">
               Logout
