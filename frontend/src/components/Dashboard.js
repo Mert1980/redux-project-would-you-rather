@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Results from "./Results";
 import NewPoll from "./NewPoll";
 import Leaderboard from "./Leaderboard";
+import NotFound from "./NotFound";
 
 class Dashboard extends Component {
   render() {
@@ -33,6 +34,13 @@ class Dashboard extends Component {
                   (question) => question.id === renderProps.match.params.id
                 );
                 console.log("question", question);
+                if (question === undefined) {
+                  return (
+                    <div>
+                      <NotFound />
+                    </div>
+                  );
+                }
                 const isAnswered =
                   question.optionOne.votes.includes(this.props.authedUser) ||
                   question.optionTwo.votes.includes(this.props.authedUser);
