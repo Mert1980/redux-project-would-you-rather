@@ -1,3 +1,4 @@
+/* Login Component */
 .container-login {
   display: flex;
   flex-direction: column;
@@ -19,6 +20,7 @@
   background-color: rgb(198, 206, 157);
 }
 
+/* NavBar Component */
 .navbar {
   width: auto;
 }
@@ -27,6 +29,7 @@
   margin-right: 1vw;
 }
 
+/* Questions Component */
 .questions {
   margin-top: 10%;
   margin-left: 15%;
@@ -40,6 +43,7 @@
   justify-content: center;
 }
 
+/* Poll Component */
 .poll-container {
   margin-top: 5%;
 
@@ -47,7 +51,7 @@
   justify-content: center;
 }
 
-/* Results Container */
+/* Results Component */
 .results-container {
   margin-top: 10%;
 }
