@@ -39,40 +39,20 @@ function QuestionTabs(props) {
         </Tabs>
       </Paper>
       <div className="question-card">
-        {Object.values(props.questions).map((question) => {
-          return value === 1
-            ? (question.optionOne.votes.includes(props.authedUser) ||
-                question.optionTwo.votes.includes(props.authedUser)) && (
-                <Card
-                  key={question.id}
-                  style={{
-                    width: "18rem",
-                    marginTop: "10px",
-                    marginRight: "20px",
-                    backgroundColor: "floralWhite",
-                  }}
-                >
-                  <Card.Img
-                    variant="top"
-                    src={props.users[question.author].avatarURL}
-                    style={{
-                      width: "150px",
-                      borderRadius: "5em",
-                      marginTop: "10px",
-                      marginLeft: "50px",
-                    }}
-                  />
-                  <Card.Body>
-                    <Card.Title>Would You Rather</Card.Title>
-                    <Card.Text>{question.optionOne.text}</Card.Text>
-                    <Card.Text>or…</Card.Text>
-                    <NavLink to={`/questions/${question.id}`}>Results</NavLink>
-                  </Card.Body>
-                </Card>
-              )
-            : value === 0 &&
-                !question.optionOne.votes.includes(props.authedUser) &&
-                !question.optionTwo.votes.includes(props.authedUser) && (
+        {console.log("1", Object.values(props.questions))}
+        {console.log(
+          "2",
+          Object.values(props.questions).sort(
+            (a, b) => b.timestamp - a.timestamp
+          )
+        )}
+
+        {Object.values(props.questions)
+          .sort((a, b) => b.timestamp - a.timestamp)
+          .map((question) => {
+            return value === 1
+              ? (question.optionOne.votes.includes(props.authedUser) ||
+                  question.optionTwo.votes.includes(props.authedUser)) && (
                   <Card
                     key={question.id}
                     style={{
@@ -97,12 +77,44 @@ function QuestionTabs(props) {
                       <Card.Text>{question.optionOne.text}</Card.Text>
                       <Card.Text>or…</Card.Text>
                       <NavLink to={`/questions/${question.id}`}>
-                        Answer Question
+                        Results
                       </NavLink>
                     </Card.Body>
                   </Card>
-                );
-        })}
+                )
+              : value === 0 &&
+                  !question.optionOne.votes.includes(props.authedUser) &&
+                  !question.optionTwo.votes.includes(props.authedUser) && (
+                    <Card
+                      key={question.id}
+                      style={{
+                        width: "18rem",
+                        marginTop: "10px",
+                        marginRight: "20px",
+                        backgroundColor: "floralWhite",
+                      }}
+                    >
+                      <Card.Img
+                        variant="top"
+                        src={props.users[question.author].avatarURL}
+                        style={{
+                          width: "150px",
+                          borderRadius: "5em",
+                          marginTop: "10px",
+                          marginLeft: "50px",
+                        }}
+                      />
+                      <Card.Body>
+                        <Card.Title>Would You Rather</Card.Title>
+                        <Card.Text>{question.optionOne.text}</Card.Text>
+                        <Card.Text>or…</Card.Text>
+                        <NavLink to={`/questions/${question.id}`}>
+                          Answer Question
+                        </NavLink>
+                      </Card.Body>
+                    </Card>
+                  );
+          })}
       </div>
     </div>
   );
